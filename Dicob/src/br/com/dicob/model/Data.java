@@ -8,14 +8,15 @@ import br.com.dicob.model.*;
 public class Data{
 
 	private LinkedList<Group> groups = new LinkedList<Group>();
-	private LinkedList<User> users = new LinkedList<User>();
-	private LinkedList<Expense> expenses = new LinkedList<Expense>();
+	private static LinkedList<User> users = new LinkedList<User>();
+	private LinkedList<Restaurant> restaurants = new LinkedList<Restaurant>();
 	
 	public void fillWithSomeData(){
 		for (int i=0;i<10;i++){
-			users.add(new User ("Us�rio: "+i,"Email:"+i+"@emailusuario.com","CPF:"+(i+1)*123122112));
+			users.add(new User ("Usário: "+i,"Email:"+i+"@emailusuario.com","CPF:"+(i+1)*123122112));
 			groups.add(new Group("Grupo: "+i, "Categoria: "+i));
-			expenses.add(new Expense("Despesa: "+i,"Valor da despesa"+(i+1)*123));
+			restaurants.add(new Restaurant("Restaurante: "+i,"Data do restaurante: 22/02/2022","Valor da restaurante"+(i+1)*123));
+			restaurants.add(new Ride("Despesa: "+i,"Quilometros:"+i*1,"Performance carro km/l"+i*2,"Valor do combustível"+(i+1)*2,"Valor da carona"+(i+1)*123));
 		}
 	}
 	
@@ -36,15 +37,15 @@ public class Data{
 		return users;
 	}
 	
-	public void setExpenses(LinkedList<Expense> expenses) {
-		this.expenses = expenses;
+	public void setRestaurants(LinkedList<Restaurant> restaurants) {
+		this.restaurants = restaurants;
 	}
 	
-	public LinkedList<Expense> getExpenses() {
-		return expenses;
+	public LinkedList<Restaurant> getRestaurants() {
+		return restaurants;
 	}
 		
-	public void uRegister(User user){
+	public static void uRegister(User user){
 		users.add(user);
 	}
 	public User getUser (int idUser) {
@@ -66,9 +67,9 @@ public class Data{
 		return false;
 	}
 	
-	public void deleteGroup(int idUsuario, int idAmigo) {
+	public void deleteGroup(int idUser, int idGroup) {
 		User user = getUser(idUser);
-		LinkedList<group> groups = user.getGroups();
+		LinkedList<Group> groups = user.getGroups();
 		for(int i = 0; i < groups.size(); i++) {
 			if(groups.get(i).getIdGroup() == idGroup) {
 				groups.remove(i);
@@ -100,27 +101,27 @@ public class Data{
 		return false;
 	}
 	
-	public void eRegister(Expense expense) {
-		expenses.add(expense);
+	public void rRegister(Restaurant restaurant) {
+		restaurants.add(restaurant);
 	}
 
-	public Expense getDespesa(int id) {
-		for(Expense expense: getExpenses()) {
-			if(expense.getIdAmount() == idExpense) {
-				return expense;
+	public Restaurant getRestaurant(int idExpense) {
+		for(Restaurant restaurant: getRestaurants()) {
+			if(restaurant.getAmountRestaurant() == idExpense) {
+				return restaurant;
 			}
 		}
 		return null;
 	}
 	
-	public LinkedList<Expense> getExpenses(int idExpense) {
-		LinkedList<Expense> listExpense = new LinkedList<Expense>();
-		for(Expense expense: getExpenses()) {
-			if(expense.getIdAmount() == idExpenses) {
-				listExpense.add(expense);
+	public LinkedList<Restaurant> getRestaurants(int idExpense) {
+		LinkedList<Restaurant> listRestaurant = new LinkedList<Restaurant>();
+		for(Restaurant restaurant: getRestaurants()) {
+			if(restaurant.getAmountRestaurant() == idExpense) {
+				listRestaurant.add(restaurant);
 			}
 		}
-		return listExpense;
+		return listRestaurant;
 	}
 
 }
