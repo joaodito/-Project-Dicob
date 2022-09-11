@@ -3,12 +3,12 @@ package br.com.dicob.model;
 public class Restaurant extends Expense{
 	
 	private String billRestaurant;
-	private String locationRestaurant;
+	private double amountRestaurant;
 	
-	public Restaurant(int idExpense,String nameExpense,int dateExpense,String billRestaurant, String locationRestaurant){
+	public Restaurant(int idExpense,String nameExpense, int dateExpense,String billRestaurant, double amountRestaurant){
 		super(idExpense, nameExpense, dateExpense);
 		this.billRestaurant = billRestaurant;
-		this.locationRestaurant = locationRestaurant;
+		this.amountRestaurant = amountRestaurant;
 	}
 	
 	public Restaurant(){}
@@ -29,10 +29,6 @@ public class Restaurant extends Expense{
 		return billRestaurant;
 	}	
 	
-	public String getLocationRestaurant() {
-		return locationRestaurant;
-	}
-	
 	public void setDateExpense(int dateExpense) {
 		super.setDateExpense(dateExpense);
 	}
@@ -49,11 +45,15 @@ public class Restaurant extends Expense{
 		this.billRestaurant = billRestaurant;
 	}
 	
-	public void setLocationRestaurant(String locationRestaurant) {
-		this.locationRestaurant = locationRestaurant;
+	public double getAmountRestaurant() {
+		return amountRestaurant;
+	}
+	
+	public void setAmountRestaurant(double amountRestaurant) {
+		this.amountRestaurant = amountRestaurant;
 	}
 	
 	public String toString() {
-		return getIdExpense()+" "+getNameExpense()+""+getDateExpense()+billRestaurant+" "+locationRestaurant;
+		return getIdExpense()+" "+getNameExpense()+""+getDateExpense()+billRestaurant+" "+amountRestaurant;
 	}
 }
