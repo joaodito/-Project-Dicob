@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 
 import br.com.dicob.model.User;
-//import br.com.dicob.view.ViewingUser;
 
 public class ControlUser {
 	
