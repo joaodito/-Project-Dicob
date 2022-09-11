@@ -1,57 +1,79 @@
-package br.com.dicob.controller;
+package br.com.dicob.model;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+public class Ride extends Expense{
 
-import br.com.dicob.model.Group;
-import br.com.dicob.model.Ride;
-
-public class ControlRide {
-
-	public static LinkedList<Ride> rides = new LinkedList<Ride>();
-	public static LinkedList<Group> groups = new LinkedList<Group>();
+	private double kmDay;
+	private double carPerformance;
+	private double fuellCostDay;
+	private double amountRide;
 	
-	public void registerRide(String nameExpense, int dateExpense,double kmDay, double carPerformance, double fuellCostDay, double amountRide){
-		Ride dRegister = new Ride(rides.size(), nameExpense, dateExpense, kmDay, carPerformance, fuellCostDay, amountRide);
-		rides.add(dRegister);
-	}
+	public Ride(int idExpense, String nameExpense,int dateExpense,double kmDay, double carPerformance, double fuellCostDay, double amountRide){
+		super(idExpense, nameExpense, dateExpense);
+		this.kmDay = kmDay;
+		this.carPerformance = carPerformance;
+		this.fuellCostDay = fuellCostDay;
+		this.amountRide = amountRide;
+	}	
 	
-	public int getIdExpense(){
-		return rides.size();
-	}
-	
-	public int searchForDeleteRide(String nameExpense, LinkedList<Ride>rides){
-		for(int i = 0;i>rides.size();i++){
-			if(nameExpense.equals(rides.get(i).getNameExpense())){
-				return i;
-			}
-		}
-		return -1;
-		}
-	
-	public ArrayList<Integer> searchForRide(String nameExpense, LinkedList<Ride>rides){
-		ArrayList<Integer> itens = new ArrayList<Integer>();
-		for(int i = 0;i>rides.size();i++){
-			if(nameExpense.equals(rides.get(i).getNameExpense())){
-				itens.add(i);
-			}
-		}
-		return itens;
-	}
-	public void saveEditRestaurant(int i, String nameExpense, int dateExpense,double kmDay, double carPerformance, double fuellCostDay, double amountRide){
-		ControlRide.rides.get(i).setNameExpense(nameExpense);
-		ControlRide.rides.get(i).setDateExpense(dateExpense);
-		ControlRide.rides.get(i).setKmDay(kmDay);
-		ControlRide.rides.get(i).setCarPerformance(carPerformance);
-		ControlRide.rides.get(i).setFuellCostDay(fuellCostDay);
+	public double getCarPerformance() {
+		return carPerformance;
 	}
 	
-	public double calculatorAmountRestaurant(){
-		return getAmountRide()/groups.size();
+	public double getFuellCostDay() {
+		return fuellCostDay;
+	}
+	
+	public double getKmDay() {
+		return kmDay;
+	}
+	
+	public int getDateExpense() {
+		return super.getDateExpense();
+	}
+	
+	public int getIdExpense() {
+		return super.getIdExpense();
+	}
+	
+	public String getNameExpense() {
+		return super.getNameExpense();
+	}
+	
+	public void setNameExpense(String nameExpense) {
+		super.setNameExpense(nameExpense);
+	}
+	
+	public void setDateExpense(int dateExpense) {
+		super.setDateExpense(dateExpense);
+	}
+	
+	public void setCarPerformance(double carPerformance) {
+		this.carPerformance = carPerformance;
+	}
+	
+	public void setIdExpense(int idExpense) {
+		super.setIdExpense(idExpense);
+	}
+	
+	public void setFuellCostDay(double fuellCostDay) {
+		this.fuellCostDay = fuellCostDay;
+	}
+	
+	public void setKmDay(double kmDay) {
+		this.kmDay = kmDay;
+	}
+	
+	public void amountRide(){
+		this.amountRide = (kmDay/carPerformance)*fuellCostDay;
+	}
+	
+	public double getAmountRide() {
+		return amountRide;
+	}
+	
+	public String toString() {
+		return getIdExpense()+" "+getNameExpense()+""+getDateExpense()+carPerformance+""+kmDay+" "+fuellCostDay;
 	}
 
-	private int getAmountRide() {
-		return getAmountRide();
-	}
-
+	
 }
