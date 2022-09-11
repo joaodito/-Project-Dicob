@@ -1,5 +1,7 @@
 package br.com.dicob.model;
 
+import java.util.LinkedList;
+
 public class User {
 
 	private int idUser;
@@ -14,8 +16,6 @@ public class User {
 		this.cpfUser = cpfUser;
 	}
 	
-	public User(){}
-
 	public int getIdUser() {
 		return idUser;
 	}
@@ -47,4 +47,16 @@ public class User {
 	public String toString() {
 		return "User id=" + idUser + ", nameUser=" + nameUser + ", emailUser=" + emailUser + ", cpfUser=" + cpfUser + "]";
 	}
+
+	public Object getNameGroup() {
+		return null;
+	}
+
+	public LinkedList<Group> getGroups() {
+		return null;
+	}
+
+	public void setGroups(LinkedList<Group> groups) {
+	}
+
 }
