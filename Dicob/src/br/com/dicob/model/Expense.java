@@ -1,13 +1,26 @@
 package br.com.dicob.model;
 
+/**
+ * Class Expense stores the information for an expense
+ * 
+ * @author João Victor and Raquel Ferreira
+ * version 1.0
+ */
+
 public abstract class Expense {
 
-	//Attributes
 	private int idExpense;
 	private String nameExpense;
 	private int dateExpense;
 
-	//Reference to this attributes
+	/**
+	 * Expense Constructor
+	 * 
+	 * @param idExpense 
+	 * @param nameExpense 
+	 * @param dateExpense
+	 */
+	
 	public Expense(int idExpense, String nameExpense,int dateExpense){
 		this.idExpense = idExpense;
 		this.nameExpense = nameExpense;
@@ -16,7 +29,6 @@ public abstract class Expense {
 	
 	public Expense(){}
 
-	//Sets and gets of users 
 	public int getIdExpense() {
 		return idExpense;
 	}
@@ -41,6 +53,10 @@ public abstract class Expense {
 		this.dateExpense = dateExpense;
 	}
 	
+	/**
+	 * Method toString
+	 * @return String
+	 */
 	public String toString() {
 		return idExpense+""+nameExpense+""+dateExpense+"";
 	}
