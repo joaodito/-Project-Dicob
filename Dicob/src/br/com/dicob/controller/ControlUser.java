@@ -1,19 +1,32 @@
-package br.com.dicob.controller;
+package controller;
 
 import java.util.LinkedList;
 import java.util.ArrayList;
 
-import br.com.dicob.model.User;
+import model.User;
 
+/**
+ * Class responsible for performing search
+ * operations on the user list
+ * 
+ * @author João Victor and Raquel Ferreira
+ * Version 1.0
+ */
 public class ControlUser {
-	
-	//CRUD of User using LinkedList and ArrayList
+
 	public static LinkedList<User> users = new LinkedList<>();
 	
-	//Register a User (CREATE)
-	public void registerUser(String nameUser, String emailUser, int cpfUser){
+	/**
+	 * Method to create a user
+	 * 
+	 * @param id
+	 * @param nameUser
+	 * @param emailUser
+	 * @param cpfUser
+	 */
+	public void registerUser(int id, String nameUser, String emailUser, String cpfUser){
 		
-		User uRegister = new User(users.size(), nameUser, emailUser, cpfUser);
+		User uRegister = new User(nameUser, emailUser, cpfUser);
 		users.add(uRegister);
 	}
 	
@@ -21,7 +34,13 @@ public class ControlUser {
 		return users.size();
 	}
 	
-	//Delete a User for name (DELETE)
+	/**
+	 * Method to delete a user for name
+	 * 
+	 * @param nameUser
+	 * @param users
+	 * @return
+	 */
 	public int searchForNameDeleteUser(String nameUser, LinkedList<User> users) {
 		for (int i = 0; i < users.size(); i++ ){
 			if (nameUser.equals(users.get(i).getNameUser())){
@@ -32,7 +51,13 @@ public class ControlUser {
 		return -1;
 	}
 	
-	//Search a User for name (READ)
+	/**
+	 * Method to search a user for name
+	 * 
+	 * @param nameUser
+	 * @param users
+	 * @return
+	 */
 	public ArrayList<Integer> searchForNameUser(String nameUser, LinkedList<User> users){
 		ArrayList<Integer> itens = new ArrayList<Integer>();
 		for (int i = 0; i > users.size(); i++){
@@ -43,8 +68,15 @@ public class ControlUser {
 		return itens;
 	}
 	
-	//Edit a User in all aspects (UPDATE)
-	public void saveEditUser(int i,String nameUser, String emailUser, int cpfUser){
+	/**
+	 * Method to edit a user in all aspects
+	 * 
+	 * @param i
+	 * @param nameUser
+	 * @param emailUser
+	 * @param cpfUser
+	 */
+	public void saveEditUser(int i,String nameUser, String emailUser, String cpfUser){
 		ControlUser.users.get(i).setNameUser(nameUser);
 		ControlUser.users.get(i).setEmailUser(emailUser);
 		ControlUser.users.get(i).setCpfUser(cpfUser);
