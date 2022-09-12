@@ -1,5 +1,12 @@
-package br.com.dicob.model;
+package model;
 
+/**
+ * Class Ride stores the information of a 
+ * ride expense and extend the class Expense
+ * 
+ * @author João Victor and Raquel Ferreira
+ * version 1.0
+ */
 public class Ride extends Expense{
 
 	private double kmDay;
@@ -7,6 +14,17 @@ public class Ride extends Expense{
 	private double fuellCostDay;
 	private double amountRide;
 	
+	/**
+	 * Ride Constructor
+	 * 
+	 * @param idExpense
+	 * @param nameExpense
+	 * @param dateExpense
+	 * @param kmDay
+	 * @param carPerformance
+	 * @param fuellCostDay
+	 * @param amountRide
+	 */
 	public Ride(int idExpense, String nameExpense,int dateExpense,double kmDay, double carPerformance, double fuellCostDay, double amountRide){
 		super(idExpense, nameExpense, dateExpense);
 		this.kmDay = kmDay;
@@ -71,6 +89,10 @@ public class Ride extends Expense{
 		return amountRide;
 	}
 	
+	/** 
+	 * Method toString
+	 * @return String
+	 */
 	public String toString() {
 		return getIdExpense()+" "+getNameExpense()+""+getDateExpense()+carPerformance+""+kmDay+" "+fuellCostDay;
 	}
