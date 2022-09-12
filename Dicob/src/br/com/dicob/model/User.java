@@ -1,16 +1,33 @@
-package br.com.dicob.model;
+package model;
 
 import java.util.LinkedList;
 
-public class User {
+/**
+ * Class User stores information of a user
+ * 
+ * @author João Victor and Raquel Ferreira
+ * version 1.0
+ */
 
+public class User {
+	
+	private static int idControl;
 	private int idUser;
 	private String nameUser;
 	private String emailUser;
-	private int cpfUser;
+	private String cpfUser;
+	
+	/** 
+	 * User Constructor
+	 * 
+	 * @param idUser
+	 * @param nameUser
+	 * @param emailUser
+	 * @param cpfUser
+	 */
 
-	public User(int idUser, String nameUser, String emailUser, int cpfUser){
-		this.idUser = idUser;
+	public User(String nameUser, String emailUser, String cpfUser){
+		this.idUser = idControl++;
 		this.nameUser = nameUser;
 		this.emailUser = emailUser;
 		this.cpfUser = cpfUser;
@@ -36,11 +53,11 @@ public class User {
 		this.emailUser = emailUser;
 	}
 
-	public int getCpfUser() {
+	public String getCpfUser() {
 		return cpfUser;
 	}
 
-	public void setCpfUser(int cpfUser) {
+	public void setCpfUser(String cpfUser) {
 		this.cpfUser = cpfUser;
 	}
 
