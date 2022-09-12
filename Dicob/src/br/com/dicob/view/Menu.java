@@ -9,7 +9,7 @@ public class ViewingMenu implements ActionListener{
 	
 	private static JFrame window = new JFrame("Dicob - Despesas de Carona");
 	private static JLabel title = new JLabel("Tela Inicial"); 
-	private static JButton user = new JButton("Usu·rio");
+	private static JButton user = new JButton("Usu√°rio");
 	private static JButton group = new JButton("Grupo");
 	private static JButton expense = new JButton("Despesa");
 	public static DataControl data = new DataControl();
