@@ -1,10 +1,14 @@
-package br.com.dicob.model;
+package model;
 
 /**
- * Class Expense stores the information for an expense
+ * Abstract class that its attributes and methods 
+ * can be used by the restaurant and ride classes
  * 
  * @author João Victor and Raquel Ferreira
  * version 1.0
+ * 
+ * @see Restaurant
+ * @see Ride
  */
 
 public abstract class Expense {
