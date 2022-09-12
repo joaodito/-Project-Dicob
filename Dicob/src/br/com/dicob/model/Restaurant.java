@@ -1,11 +1,27 @@
-package br.com.dicob.model;
+package model;
 
+/**
+ * Class Restaurant stores the information of a 
+ * restaurant expense and extend the class Expense
+ * 
+ * @author João Victor and Raquel Ferreira
+ * version 1.0
+ */
 public class Restaurant extends Expense{
 	
 	private String billRestaurant;
 	private double amountRestaurant;
 	
-	public Restaurant(int idExpense,String nameExpense, int dateExpense,String billRestaurant, double amountRestaurant){
+	/**
+	 * Restaurant Constructor
+	 * 
+	 * @param idExpense
+	 * @param nameExpense
+	 * @param dateExpense
+	 * @param billRestaurant2
+	 * @param amountRestaurant
+	 */
+	public Restaurant(int idExpense,String nameExpense, int dateExpense, String billRestaurant, double amountRestaurant){
 		super(idExpense, nameExpense, dateExpense);
 		this.billRestaurant = billRestaurant;
 		this.amountRestaurant = amountRestaurant;
@@ -53,6 +69,10 @@ public class Restaurant extends Expense{
 		this.amountRestaurant = amountRestaurant;
 	}
 	
+	/**
+	 * Method toString
+	 * @return String
+	 */
 	public String toString() {
 		return getIdExpense()+" "+getNameExpense()+""+getDateExpense()+billRestaurant+" "+amountRestaurant;
 	}
